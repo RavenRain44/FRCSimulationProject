@@ -6,9 +6,9 @@ import frc.robot.subsystems.DriveSubsystem;
 
 
 public class TeleopDriveCommand extends Command {
-    private DriveSubsystem driveSubsystem;
+    private final DriveSubsystem driveSubsystem;
 
-    private Joystick controller;
+    private final Joystick controller;
 
     public TeleopDriveCommand(DriveSubsystem driveSubsystem, Joystick controller) {
 
