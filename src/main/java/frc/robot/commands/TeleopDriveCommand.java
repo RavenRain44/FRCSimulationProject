@@ -1,6 +1,6 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -8,9 +8,9 @@ import frc.robot.subsystems.DriveSubsystem;
 public class TeleopDriveCommand extends Command {
     private final DriveSubsystem driveSubsystem;
 
-    private final Joystick controller;
+    private final XboxController controller;
 
-    public TeleopDriveCommand(DriveSubsystem driveSubsystem, Joystick controller) {
+    public TeleopDriveCommand(DriveSubsystem driveSubsystem, XboxController controller) {
 
         this.controller = controller;
 
@@ -20,6 +20,6 @@ public class TeleopDriveCommand extends Command {
 
     @Override
     public void execute() {
-        driveSubsystem.drive(controller.getY(), controller.getY());
+        driveSubsystem.drive(controller.getLeftY(), controller.getLeftX());
     }
 }

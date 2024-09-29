@@ -76,11 +76,13 @@ public class DriveSubsystem extends SubsystemBase {
         rightEncoderSim.setDistance(driveSim.getRightPositionMeters());
         rightEncoderSim.setRate(driveSim.getRightVelocityMetersPerSecond());
         gyroSim.setAngle(-driveSim.getHeading().getDegrees());
+
+        field.setRobotPose(driveSim.getPose());
     }
 
-    public void drive(double leftSpeed, double rightSpeed) {
-        leftMotor.set(leftSpeed);
-        rightMotor.set(rightSpeed);
+    public void drive(double forwardSpeed, double turnSpeed) {
+        leftMotor.set(-forwardSpeed + turnSpeed);
+        rightMotor.set(-forwardSpeed - turnSpeed);
 
     }
 }
