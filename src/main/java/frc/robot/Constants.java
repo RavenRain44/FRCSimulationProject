@@ -29,7 +29,7 @@ public final class Constants
         public static final DCMotor kDriveMotors = DCMotor.getNEO(2);
         public static final double kDriveGearReduction = 7.29;
         public static final double kDriveMOI = 7.5;
-        public static final double kDriveMass = 60.0;
+        public static final double kDriveMass = 100.0;
         public static final double kDriveWheelRadius = 3.0; // INCHES
         public static final double kTrackwidthMeters = 0.7112;
     }

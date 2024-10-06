@@ -5,6 +5,7 @@ import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
+import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotController;
@@ -77,13 +78,13 @@ public class DriveSubsystem extends SubsystemBase {
         rightEncoderSim.setRate(driveSim.getRightVelocityMetersPerSecond());
         gyroSim.setAngle(-driveSim.getHeading().getDegrees());
 
-        field.setRobotPose(driveSim.getPose());
+        field.setRobotPose(driveSim.getPose()); // TODO Make the robot simulation more accurate to an actual robot
+        SmartDashboard.putData("Obodom", (Sendable) driveSim.getPose());
     }
 
     public void drive(double forwardSpeed, double turnSpeed) {
         leftMotor.set(-forwardSpeed + turnSpeed);
         rightMotor.set(-forwardSpeed - turnSpeed);
-
     }
 }
 
